@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { onMounted, ref, watch } from 'vue'
+import { withBase } from 'vitepress'
 
 type ReadingMode = 'horizontal' | 'vertical'
 
@@ -31,10 +32,10 @@ function changeFont(delta: number) {
 <template>
   <div class="reader-app" :class="{ 'is-dark': dark }">
     <header class="reader-header">
-      <a class="reader-brand" href="/">大字體閱讀器</a>
+      <a class="reader-brand" :href="withBase('/')">大字體閱讀器</a>
       <nav class="reader-nav" aria-label="主要導覽">
-        <a href="/articles/">文章</a>
-        <a href="/about">關於</a>
+        <a :href="withBase('/articles/')">文章</a>
+        <a :href="withBase('/about')">關於</a>
       </nav>
     </header>
 
