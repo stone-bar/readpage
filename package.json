@@ -1,0 +1,14 @@
+{
+  "name": "readpage",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs",
+    "convert:txt": "node scripts/convert-txt.mjs"
+  },
+  "devDependencies": {
+    "vitepress": "1.6.4"
+  }
+}
