@@ -1,4 +1,5 @@
 import { defineConfig } from 'vitepress'
+import { articleSidebar } from './generated-sidebar'
 
 const repository = process.env.GITHUB_REPOSITORY?.split('/')[1]
 const base = process.env.VITEPRESS_BASE || (repository ? `/${repository}/` : '/')
@@ -18,7 +19,7 @@ export default defineConfig({
       '/articles/': [
         {
           text: '文章',
-          items: [{ text: '第一篇文章', link: '/articles/welcome' }]
+          items: articleSidebar
         }
       ]
     },

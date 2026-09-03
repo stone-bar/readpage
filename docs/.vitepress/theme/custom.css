@@ -25,20 +25,22 @@ button, a { font: inherit; }
 .reader-toolbar button[aria-pressed='true'] { border-color: var(--reader-accent); background: var(--reader-accent); color: #fff; }
 .toolbar-divider { width: 1px; height: 1.4rem; margin: 0 .25rem; background: var(--reader-border); }
 .reader-main { width: min(100% - 2rem, 48rem); margin: 0 auto; padding: 3.5rem 0 6rem; }
-.reader-main .vp-doc { max-width: none; font-size: calc(1.25rem * var(--font-scale)); line-height: 2; letter-spacing: .025em; }
-.reader-main .vp-doc h1 { font-size: calc(2rem * var(--font-scale)); line-height: 1.35; }
-.reader-main .vp-doc h2 { margin-top: 3rem; font-size: calc(1.55rem * var(--font-scale)); }
-.reader-main .vp-doc p { margin: 1.4em 0; }
-.reader-main .vp-doc img { border-radius: .5rem; }
-.reader-main.mode-vertical .vp-doc { writing-mode: vertical-rl; text-orientation: mixed; max-width: 100%; width: 100%; height: min(72vh, 44rem); overflow-x: auto; overflow-y: hidden; padding: .5rem 0 1rem; }
-.reader-main.mode-vertical .vp-doc h1, .reader-main.mode-vertical .vp-doc h2 { margin: 0 1.5em 0 0; }
-.reader-main.mode-vertical .vp-doc p { margin: 0 1em; }
-.reader-main.mode-vertical .vp-doc pre, .reader-main.mode-vertical .vp-doc code { writing-mode: horizontal-tb; }
+.reader-content { max-width: 100%; line-height: 2; letter-spacing: .025em; }
+.reader-content .vp-doc { max-width: none; }
+.reader-content .vp-doc h1 { font-size: 2rem; line-height: 1.35; }
+.reader-content .vp-doc h2 { margin-top: 3rem; font-size: 1.55rem; }
+.reader-content .vp-doc p { margin: 1.4em 0; }
+.reader-content .vp-doc img { border-radius: .5rem; }
+.reader-main.mode-vertical .reader-content { width: 100%; height: min(72vh, 44rem); overflow-x: auto; overflow-y: hidden; padding: .5rem 0 1rem; }
+.reader-main.mode-vertical .reader-content .vp-doc { max-width: none; }
+.reader-main.mode-vertical .reader-content h1, .reader-main.mode-vertical .reader-content h2 { margin: 0 1.5em 0 0; }
+.reader-main.mode-vertical .reader-content p { margin: 0 1em; }
+.reader-main.mode-vertical .reader-content pre, .reader-main.mode-vertical .reader-content code { writing-mode: horizontal-tb; }
 
 @media (max-width: 600px) {
   .reader-header { padding: .9rem 1rem; }
   .reader-toolbar { justify-content: flex-start; overflow-x: auto; }
   .reader-toolbar button { flex: 0 0 auto; }
   .reader-main { width: min(100% - 2rem, 48rem); padding-top: 2.5rem; }
-  .reader-main .vp-doc { font-size: calc(1.2rem * var(--font-scale)); }
+  .reader-content { font-size: 1.2rem; }
 }

@@ -7,6 +7,12 @@ const mode = ref<ReadingMode>('horizontal')
 const dark = ref(false)
 const fontScale = ref(1)
 
+const articleStyle = () => ({
+  fontSize: `${1.25 * fontScale.value}rem`,
+  writingMode: mode.value === 'vertical' ? 'vertical-rl' : 'horizontal-tb',
+  textOrientation: 'mixed'
+})
+
 onMounted(() => {
   mode.value = (localStorage.getItem('reader-mode') as ReadingMode) || 'horizontal'
   dark.value = localStorage.getItem('reader-dark') === 'true'
@@ -41,8 +47,10 @@ function changeFont(delta: number) {
       <button type="button" class="dark-toggle" @click="dark = !dark">{{ dark ? '淺色' : '深色' }}</button>
     </div>
 
-    <main class="reader-main" :class="`mode-${mode}`" :style="{ '--font-scale': fontScale }">
-      <Content />
+    <main class="reader-main" :class="`mode-${mode}`">
+      <article class="reader-content" :style="articleStyle()">
+        <Content />
+      </article>
     </main>
   </div>
 </template>
